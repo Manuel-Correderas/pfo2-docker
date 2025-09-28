@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  web:
+    build: .                         # Usa el Dockerfile de esta carpeta
+    container_name: webserver
+    ports:
+      - "8080:80"                    # http://localhost:8080 → Apache (PHP)
+    depends_on:
+      - db                           # Espera a que la DB esté lista
+    environment:                     # Variables de entorno para PHP
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_NAME: ${DB_NAME}
+    restart: unless-stopped          # Se reinicia si se cae
+
+  db:
+    image: mysql:8.0                 # Usamos la imagen oficial MySQL
+    container_name: mysql-db
+    environment:                     # Variables leídas desde .env
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+    ports:
+      - "3306:3306"                  # Conexión desde Workbench
+    volumes:
+      - mysql_data:/var/lib/mysql    # Persistencia de datos
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
