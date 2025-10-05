@@ -183,7 +183,7 @@ while ($row = $result->fetch_assoc()) {
 
 **Manuel Correderas**
 📚 Instituto de Formación Técnica Superior N° 29
-📘  Materia: Desarrollo DevOps – PFO2
+📘  Materia: Seminario de actualización dev ops -3° D – PFO2
 👨‍🏫 Profesor: Javier Blanco
 👥 Equipo: Daniel Coria, María Nazar y Manuel Correderas
 ---
