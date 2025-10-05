@@ -185,7 +185,7 @@ while ($row = $result->fetch_assoc()) {
 📚 Instituto de Formación Técnica Superior N° 29
 📘  Materia: Desarrollo DevOps – PFO2
 👨‍🏫 Profesor: Javier Blanco
-👥 Equipo: Daniel Coria y María Nazar
+👥 Equipo: Daniel Coria, María Nazar y Manuel Correderas
 ---
 
 > ⚠️ **Nota:** No subir el archivo `.env` al repositorio.
